@@ -1,0 +1,332 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/fonts/Default_normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/images/close_button_icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/styles/button_stylebox.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/styles/text_edit_styleBox.tres" type="StyleBox" id=4]
+[ext_resource path="res://src/ui/menus/MultiplayerMenu.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/TiltNeon-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/styles/list_stylebox.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/images/tile_ground_sprite.png" type="Texture" id=8]
+[ext_resource path="res://src/ui/MenuEnvironment.tres" type="Environment" id=9]
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+extra_spacing_char = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxLine" id=2]
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="MultiplayerMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -423, -187 )
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.141176, 0.141176, 0.141176, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="InputScreen" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="InputScreen"]
+self_modulate = Color( 1.5, 1, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -348.0
+margin_right = 448.0
+margin_bottom = -220.0
+custom_fonts/font = ExtResource( 1 )
+text = "Enter Username:"
+align = 1
+
+[node name="UserInput" type="LineEdit" parent="InputScreen"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -156.0
+margin_right = 448.0
+margin_bottom = -28.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/read_only = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+max_length = 10
+clear_button_enabled = true
+caret_blink = true
+
+[node name="CreateButton" type="Button" parent="InputScreen"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = 164.0
+margin_right = 576.0
+margin_bottom = 292.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Create"
+
+[node name="JoinButton" type="Button" parent="InputScreen"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -576.0
+margin_top = 164.0
+margin_right = -64.0
+margin_bottom = 292.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Join"
+
+[node name="BrowserScreen" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="BrowserScreen"]
+self_modulate = Color( 1.5, 1, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -476.0
+margin_right = 640.0
+margin_bottom = -348.0
+custom_fonts/font = ExtResource( 1 )
+text = "Looking for servers"
+valign = 1
+
+[node name="ManualButton" type="Button" parent="BrowserScreen"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -704.0
+margin_top = -184.0
+margin_right = -64.0
+margin_bottom = -56.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Manual Setup"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BrowserScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -284.0
+margin_right = 640.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = ExtResource( 7 )
+scroll_horizontal_enabled = false
+
+[node name="ServerContainer" type="VBoxContainer" parent="BrowserScreen/ScrollContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1270.0
+margin_bottom = 566.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ManualConnection" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="ManualConnection"]
+self_modulate = Color( 1.5, 1, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -348.0
+margin_right = 448.0
+margin_bottom = -220.0
+custom_fonts/font = ExtResource( 1 )
+text = "Enter Server IP:"
+align = 1
+
+[node name="UserInput" type="LineEdit" parent="ManualConnection"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -156.0
+margin_right = 448.0
+margin_bottom = -28.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/read_only = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+max_length = 15
+clear_button_enabled = true
+caret_blink = true
+
+[node name="ManualJoinButton" type="Button" parent="ManualConnection"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = 164.0
+margin_right = 256.0
+margin_bottom = 292.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Join"
+
+[node name="LobbyScreen" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="LobbyScreen"]
+self_modulate = Color( 1.5, 1, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -476.0
+margin_right = 512.0
+margin_bottom = -348.0
+custom_fonts/font = ExtResource( 1 )
+text = "Waiting for players"
+valign = 1
+
+[node name="StartButton" type="Button" parent="LobbyScreen"]
+self_modulate = Color( 1, 1.5, 1.5, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -576.0
+margin_top = -184.0
+margin_right = -64.0
+margin_bottom = -56.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Start Game"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LobbyScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -284.0
+margin_right = 512.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = ExtResource( 7 )
+scroll_horizontal_enabled = false
+
+[node name="PlayersContainer" type="VBoxContainer" parent="LobbyScreen/ScrollContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 566.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="IP" type="Label" parent="LobbyScreen"]
+self_modulate = Color( 1.5, 1, 1.5, 1 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = -120.0
+margin_right = 1088.0
+custom_fonts/font = SubResource( 6 )
+text = "192.168.25.5"
+valign = 1
+
+[node name="CloseButton" type="Button" parent="."]
+self_modulate = Color( 1.50196, 1, 1, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -192.0
+margin_top = 64.0
+margin_right = -64.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 64, 64 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+action_mode = 0
+icon = ExtResource( 2 )
+flat = true
+align = 0
+icon_align = 1
+expand_icon = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 9 )
+
+[connection signal="pressed" from="InputScreen/CreateButton" to="." method="_on_Create_btn_pressed"]
+[connection signal="pressed" from="InputScreen/JoinButton" to="." method="_on_Join_btn_pressed"]
+[connection signal="pressed" from="BrowserScreen/ManualButton" to="." method="_on_Manual_btn_pressed"]
+[connection signal="pressed" from="ManualConnection/ManualJoinButton" to="." method="_on_ManualJoin_btn_pressed"]
+[connection signal="pressed" from="LobbyScreen/StartButton" to="." method="_on_Start_btn_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_Close_btn_pressed"]

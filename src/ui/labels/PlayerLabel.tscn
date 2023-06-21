@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Default_normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/ui/labels/PlayerLabel.gd" type="Script" id=2]
+
+[node name="Label" type="Label"]
+self_modulate = Color( 1.5, 1.5, 1, 1 )
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player"
+align = 1
+valign = 1
+script = ExtResource( 2 )
