@@ -10,13 +10,13 @@ var server_info = {"name": "LAN Game"}
 
 
 # Nodes in scene
-onready var broadcastTimer = $BroadcastTimer
+@onready var broadcastTimer = $BroadcastTimer
 
 # Interval at which broadcasted packets are sent
 var broadcast_interval = 1.0
 
 func _ready() -> void:
-	if get_tree().is_network_server():
+	if get_tree().is_server():
 		print("Advertiser Active")
 		socket_upd = PacketPeerUDP.new()
 		socket_upd.set_broadcast_enabled(true)
@@ -25,8 +25,8 @@ func _ready() -> void:
 
 func _on_BroadcastTimer_timeout():
 	server_info.name = Network.username
-	var packet_message = to_json(server_info)
-	socket_upd.put_packet(packet_message.to_utf8())
+	var packet_message = JSON.new().stringify(server_info)
+	socket_upd.put_packet(packet_message.to_utf8_buffer())
 
 
 func _exit_tree() -> void:

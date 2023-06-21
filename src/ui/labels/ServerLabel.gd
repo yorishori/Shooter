@@ -3,7 +3,7 @@ extends Label
 signal join_pressed(ip)
 
 var ip = ""
-var server_name = "" setget _set_name
+var server_name = "" : set = _set_name
 
 
 func _set_name(new_name):

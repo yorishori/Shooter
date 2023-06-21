@@ -4,13 +4,13 @@ signal joystick_pressed(velocity)
 
 
 # Scene nodes
-onready var JoystickFrame = $Move/JoystickFrame
-onready var JoystickPoint = $Move/JoystickFrame/JoystickPoint
+@onready var JoystickFrame = $Move/JoystickFrame
+@onready var JoystickPoint = $Move/JoystickFrame/JoystickPoint
 
 
 
 # Max distance of joystick detection
-onready var joystick_detection_radius = $Move/CollisionShape2D.shape.radius
+@onready var joystick_detection_radius = $Move/CollisionShape2D.shape.radius
 
 # Pressed variables
 var joystick_inputs = {}

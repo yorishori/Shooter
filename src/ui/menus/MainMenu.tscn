@@ -1,256 +1,240 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://ck261l1w5m2fe"]
 
-[ext_resource path="res://assets/images/tile_ground_sprite.png" type="Texture" id=1]
-[ext_resource path="res://assets/images/close_button_icon.png" type="Texture" id=2]
-[ext_resource path="res://src/ui/menus/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/Default_normal.tres" type="DynamicFont" id=4]
-[ext_resource path="res://assets/fonts/Default_title.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/styles/button_stylebox.tres" type="StyleBox" id=6]
-[ext_resource path="res://src/ui/MenuEnvironment.tres" type="Environment" id=8]
+[ext_resource type="Script" path="res://src/ui/menus/MainMenu.gd" id="1_14q78"]
+[ext_resource type="Texture2D" uid="uid://7giba0syr5t8" path="res://assets/images/tile_ground_image.png" id="2_wllr1"]
+[ext_resource type="StyleBox" path="res://assets/styles/button_styleline.tres" id="3_ajgrm"]
+[ext_resource type="Texture2D" uid="uid://b01vo4k0mj46m" path="res://assets/images/close_button_image.png" id="3_cn70s"]
+[ext_resource type="FontFile" uid="uid://ccrvwycdpdlcd" path="res://assets/fonts/tilt_neon_regular.ttf" id="3_k8jp3"]
 
-[sub_resource type="StyleBoxLine" id=4]
-thickness = 5
-vertical = true
+[sub_resource type="Environment" id="1"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_blend_mode = 0
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="FontVariation" id="FontVariation_xmv5n"]
 
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="LabelSettings" id="LabelSettings_eq3as"]
+font = SubResource("FontVariation_xmv5n")
+font_size = 96
 
 [node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14q78")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.141176, 0.141176, 0.141176, 1 )
+modulate = Color(0.141176, 0.141176, 0.141176, 1)
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
-stretch_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wllr1")
+stretch_mode = 1
 
 [node name="StartScreen" type="Panel" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="StartButton" type="Button" parent="StartScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -220.0
-margin_right = 320.0
-margin_bottom = -92.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+offset_left = -256.0
+offset_top = -220.0
+offset_right = 256.0
+offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("3_ajgrm")
 action_mode = 0
 text = "Start Game"
+flat = true
 
 [node name="SettingsButton" type="Button" parent="StartScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -28.0
-margin_right = 320.0
-margin_bottom = 100.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+offset_left = -256.0
+offset_top = -28.0
+offset_right = 256.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("3_ajgrm")
 action_mode = 0
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="StartScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = 164.0
-margin_right = 320.0
-margin_bottom = 292.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+offset_left = -256.0
+offset_top = 164.0
+offset_right = 256.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("3_ajgrm")
 action_mode = 0
 text = "Credits"
 
 [node name="SettingsScreen" type="Panel" parent="."]
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MusicToggle" type="Button" parent="SettingsScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+self_modulate = Color(1.5, 1, 1, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -704.0
-margin_top = -156.0
-margin_right = -64.0
-margin_bottom = -28.0
+offset_left = -288.0
+offset_top = -284.0
+offset_right = 288.0
+offset_bottom = -92.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
 toggle_mode = true
-shortcut_in_tooltip = false
 action_mode = 0
-enabled_focus_mode = 0
+shortcut_in_tooltip = false
 text = "Music"
 
 [node name="SoundToggle" type="Button" parent="SettingsScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+self_modulate = Color(1.5, 1, 1, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 64.0
-margin_top = -156.0
-margin_right = 704.0
-margin_bottom = -28.0
+offset_left = -288.0
+offset_top = -28.0
+offset_right = 288.0
+offset_bottom = 164.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
 toggle_mode = true
 action_mode = 0
-enabled_focus_mode = 0
-text = "Sounds"
+text = "Sound"
 
 [node name="DarkGameToggle" type="Button" parent="SettingsScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+self_modulate = Color(1.5, 1, 1, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 64.0
-margin_top = 164.0
-margin_right = 704.0
-margin_bottom = 292.0
+offset_left = -288.0
+offset_top = 228.0
+offset_right = 288.0
+offset_bottom = 420.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
 toggle_mode = true
 action_mode = 0
-enabled_focus_mode = 0
 text = "Dark Game"
 
 [node name="GameScreen" type="Panel" parent="."]
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="SingleButton" type="Button" parent="GameScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+self_modulate = Color(1, 1.5, 1, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -704.0
-margin_top = -28.0
-margin_right = -64.0
-margin_bottom = 100.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+offset_left = -704.0
+offset_top = -28.0
+offset_right = -128.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
 action_mode = 0
 text = "Single Player"
 
 [node name="MultiButton" type="Button" parent="GameScreen"]
-self_modulate = Color( 1, 1.5, 1.5, 1 )
+self_modulate = Color(1, 1.5, 1, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 128.0
-margin_top = -28.0
-margin_right = 768.0
-margin_bottom = 100.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+offset_left = 128.0
+offset_top = -28.0
+offset_right = 704.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_k8jp3")
+theme_override_font_sizes/font_size = 80
 action_mode = 0
 text = "Multiplayer"
 
 [node name="CreditsScreen" type="Panel" parent="."]
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="Label" parent="."]
-self_modulate = Color( 1.5, 1, 1.5, 1 )
+self_modulate = Color(1.5, 1, 1.5, 1)
+layout_mode = 0
 anchor_top = 0.059
 anchor_right = 1.0
 anchor_bottom = 0.178
-margin_top = 0.279999
-margin_bottom = -0.240005
-custom_fonts/font = ExtResource( 5 )
-text = "Angular Assault"
-align = 1
-valign = 1
+offset_top = 0.279999
+offset_bottom = -0.240005
+theme_override_fonts/font = ExtResource("3_k8jp3")
+text = "Title of the game"
+label_settings = SubResource("LabelSettings_eq3as")
+horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="."]
-self_modulate = Color( 1.50196, 1, 1, 1 )
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -192.0
-margin_top = 64.0
-margin_right = -64.0
-margin_bottom = 192.0
-rect_pivot_offset = Vector2( 64, 64 )
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 5 )
-custom_styles/disabled = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
+offset_left = -192.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = 192.0
+pivot_offset = Vector2(64, 64)
 action_mode = 0
-icon = ExtResource( 2 )
+icon = ExtResource("3_cn70s")
 flat = true
-align = 0
-icon_align = 1
+icon_alignment = 1
 expand_icon = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 8 )
 
 [connection signal="pressed" from="StartScreen/StartButton" to="." method="_on_Start_btn_pressed"]
 [connection signal="pressed" from="StartScreen/SettingsButton" to="." method="_on_Settings_btn_pressed"]

@@ -13,7 +13,7 @@ var network = null
 
 # IP Address of this machine
 var ip = ""
-var username = "" setget _set_username
+var username = "" : set = _set_username
 
 # Connected players
 var connected_players = {}
@@ -55,16 +55,16 @@ func create_server() -> bool:
 		print("Closing Connection (New server)")
 		network.close_connection()
 	
-	network = NetworkedMultiplayerENet.new()
+	network = ENetMultiplayerPeer.new()
 	if network.create_server(DEFAULT_PORT, MAX_CLIENTS) != OK:
 		print("Error creating server.")
 		return false
 	
-	get_tree().set_network_peer(network)
+	get_tree().set_multiplayer_peer(network)
 	
 	
-	network.connect("peer_connected",self,"_peer_connected")
-	network.connect("peer_disconnected",self,"_peer_disconnected")
+	network.connect("peer_connected",Callable(self,"_peer_connected"))
+	network.connect("peer_disconnected",Callable(self,"_peer_disconnected"))
 	
 	print("Server Created.")
 	return true
@@ -76,10 +76,10 @@ func join_server() -> bool:
 		print("Closing Connection (New Client)")
 		network.close_connection()
 	
-	network = NetworkedMultiplayerENet.new()
+	network = ENetMultiplayerPeer.new()
 	if network.create_client(ip, DEFAULT_PORT) != OK:
 		return false
-	get_tree().set_network_peer(network)
+	get_tree().set_multiplayer_peer(network)
 	
 	print("Joinded Server: "+ip)
 	return true

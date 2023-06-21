@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource path="res://assets/fonts/Default_normal.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/styles/button_stylebox.tres" type="StyleBox" id=2]
-[ext_resource path="res://src/ui/labels/ServerLabel.gd" type="Script" id=3]
+[ext_resource type="FontFile" path="res://assets/fonts/_Default_normal.tres" id="1"]
+[ext_resource type="StyleBox" path="res://assets/styles/button_stylebox.tres" id="2"]
+[ext_resource type="Script" path="res://src/ui/labels/ServerLabel.gd" id="3"]
 
 [node name="Label" type="Label"]
 self_modulate = Color( 1.5, 1.5, 1, 1 )
 anchor_right = 1.0
 anchor_bottom = 0.237
-margin_left = 64.0
-margin_top = 32.0
-margin_right = -64.0
-margin_bottom = -31.96
-rect_min_size = Vector2( 0, 192 )
+offset_left = 64.0
+offset_top = 32.0
+offset_right = -64.0
+offset_bottom = -31.96
+custom_minimum_size = Vector2( 0, 192 )
 custom_fonts/font = ExtResource( 1 )
 text = "Player's Server"
 valign = 1
@@ -22,10 +22,10 @@ script = ExtResource( 3 )
 [node name="Join" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -384.0
-margin_top = 32.0
-margin_right = -64.0
-margin_bottom = 160.0
+offset_left = -384.0
+offset_top = 32.0
+offset_right = -64.0
+offset_bottom = 160.0
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 2 )

@@ -3,10 +3,10 @@ extends Control
 signal shoot_pressed
 
 # Scene nodes
-onready var ShootFrame = $Shoot/ShootFrame
+@onready var ShootFrame = $Shoot/ShootFrame
 
 # Max distance of joystick detection
-onready var shoot_detection_radius =  $Shoot/CollisionShape2D.shape.radius
+@onready var shoot_detection_radius =  $Shoot/CollisionShape2D.shape.radius
 
 # Pressed variables
 var shoot_inputs = {}
